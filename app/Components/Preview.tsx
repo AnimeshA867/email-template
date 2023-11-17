@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import AwardSection from "./AwardSection";
 import Link from "next/link";
 const Preview = ({
   name,
@@ -10,6 +11,8 @@ const Preview = ({
   email,
   address,
   website,
+  profile = "https://img.freepik.com/free-photo/portrait-hesitant-man-purses-lips-looks-bewilderment-feels-doubt_273609-16785.jpg",
+  award,
 }: {
   name: string;
   designation: string;
@@ -19,6 +22,8 @@ const Preview = ({
   email: string;
   address: string;
   website: string;
+  profile: string;
+  award: [string] | undefined;
 }) => {
   return (
     <div className="h-auto w-1/2">
@@ -28,13 +33,15 @@ const Preview = ({
         me. <br /> <br /> Kind Regards,
       </h4>
       <div className="signature" style={{ width: "820px" }}>
-        {/* <!-- <div className="logo" style={{width: "820px"}}>
-        <img
-          src="https://dasraa.com/MultiDynamicEmail/grayorange.png"
-          alt="MultiDynamic"
-          style={{width: "820px"}}
-        />
-      </div> --> */}
+        {/* <div className="logo" style={{ width: "820px" }}>
+          <Image
+            height={600}
+            width={600}
+            src={profile}
+            alt="MultiDynamic"
+            style={{ width: "820px", height: "auto" }}
+          />
+        </div> */}
         <table className="logo" style={{ width: "820px", height: "151px" }}>
           <tbody>
             <tr>
@@ -245,14 +252,15 @@ const Preview = ({
                   </tbody>
                 </table>
               </td>
-              <td>
-                <Image
+              <td style={{ display: "flex", gap: "4px" }}>
+                <AwardSection award={award} />
+                {/* <Image
                   height={130}
                   width={130}
-                  src="https://dasraa.com/MultiDynamicEmail/awards2.png"
+                  src={profile}
                   alt=""
                   style={{ width: "130px", height: "130px" }}
-                />
+                /> */}
               </td>
             </tr>
           </tbody>

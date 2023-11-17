@@ -1,4 +1,6 @@
 import React from "react";
+import { SingleImageDropzoneUsage } from "./InputImageSingle";
+import { MultiFileDropzoneUsage } from "./InputImageMultiple";
 interface YourFormProps {
   handleNameChange: (value: any) => void;
   handleDesignationChange: (value: any) => void;
@@ -8,7 +10,9 @@ interface YourFormProps {
   handleEmailChange: (value: any) => void;
   handleAddressChange: (value: any) => void;
   handleWebsiteChange: (value: any) => void;
-  handleImage: (value: any) => void;
+
+  handleProfileChange: (value: any) => void;
+  handleAward: (value: [string]) => void;
 }
 const Form = ({
   handleNameChange,
@@ -19,10 +23,11 @@ const Form = ({
   handleEmailChange,
   handleAddressChange,
   handleWebsiteChange,
-  handleImage,
+  handleProfileChange,
+  handleAward,
 }: YourFormProps) => {
   return (
-    <div className="lg:h-screen w-1/2 bg-gradient-to-r from-blue-400 to-green-500 p-10 ">
+    <div className="lg:h-full w-1/2 bg-gradient-to-r from-blue-400 to-green-500 p-10 ">
       <h1 className="font-bold text-center text-4xl text-white mb-6">
         Preview
       </h1>
@@ -81,13 +86,10 @@ const Form = ({
           placeholder="Website"
           onChange={(e) => handleWebsiteChange(e)}
         />
-        <input
-          className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
-          type="file"
-          placeholder="image"
-          onSubmit={(e) => handleImage(e)}
-          //   onChange={(e) => handleWebsiteChange(e)}
-        />
+        <div className="flex justify-evenly items-center">
+          <SingleImageDropzoneUsage handleProfileChange={handleProfileChange} />
+          <MultiFileDropzoneUsage handleAward={handleAward} />
+        </div>
       </div>
     </div>
   );

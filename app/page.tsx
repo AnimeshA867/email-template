@@ -1,6 +1,6 @@
 "use client";
-import { useState } from "react";
-import Image from "next/image";
+import { useEffect, useState } from "react";
+
 import Preview from "./Components/Preview";
 import Form from "./Components/Form";
 import { emit } from "process";
@@ -14,18 +14,22 @@ export default function Home() {
   const [email, setEmail] = useState("example@example.com");
   const [address, setAddress] = useState("Address, Address");
   const [website, setWebsite] = useState("Something.com");
-  const [iamge, setImage] = useState("Something.com");
-
+  const [profile, setProfile] = useState("");
+  const [award, setAward] = useState<[string]>();
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
   };
-
+  const handleAward = (arr: [string]) => {
+    setAward(arr);
+  };
   const handleDesignationChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setDesignation(event.target.value);
   };
-
+  const handleProfileChange = (url: string) => {
+    setProfile(url);
+  };
   const handleIndustryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIndustry(event.target.value);
   };
@@ -49,10 +53,7 @@ export default function Home() {
   const handleWebsiteChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setWebsite(event.target.value);
   };
-  const handleImage = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setImage(event.target.value);
-    console.log(event.target.value);
-  };
+
   return (
     <main className="flex min-h-screen flex-row items-center gap-4">
       <Form
@@ -64,7 +65,8 @@ export default function Home() {
         handleWebsiteChange={handleWebsiteChange}
         handleAddressChange={handleAddressChange}
         handleIndustryChange={handleIndustryChange}
-        handleImage={handleImage}
+        handleProfileChange={handleProfileChange}
+        handleAward={handleAward}
       />
       <Preview
         name={name}
@@ -75,6 +77,8 @@ export default function Home() {
         email={email}
         address={address}
         website={website}
+        profile={profile}
+        award={award}
       />
     </main>
   );
