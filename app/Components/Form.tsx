@@ -10,9 +10,9 @@ interface YourFormProps {
   handleEmailChange: (value: any) => void;
   handleAddressChange: (value: any) => void;
   handleWebsiteChange: (value: any) => void;
-
   handleProfileChange: (value: any) => void;
   handleAward: (value: [string]) => void;
+  toggleUpdate: () => void;
 }
 const Form = ({
   handleNameChange,
@@ -25,71 +25,125 @@ const Form = ({
   handleWebsiteChange,
   handleProfileChange,
   handleAward,
+  toggleUpdate,
 }: YourFormProps) => {
   return (
-    <div className="lg:h-full w-1/2 bg-gradient-to-r from-blue-400 to-green-500 p-10 ">
-      <h1 className="font-bold text-center text-4xl text-white mb-6">
-        Preview
-      </h1>
-      <p className="text-white mb-4">Enter the following information:</p>
-      <div className="flex flex-col gap-4">
-        {/* You can customize the input styles further basedhandle your design preferences */}
-        <input
-          className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
-          type="text"
-          placeholder="Enter your name"
-          onChange={(e: any) => handleNameChange(e)}
-        />
-        <input
-          className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
-          type="text"
-          placeholder="Enter your designation"
-          onChange={(e) => handleDesignationChange(e)}
-        />
-        <input
-          className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
-          type="text"
-          placeholder="Enter your industry"
-          onChange={(e) => handleIndustryChange(e)}
-        />
-        <input
-          className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
-          type="tel"
-          name="phoneNumber"
-          id="telephone1"
-          placeholder="+1 111-111-1111"
-          onChange={(e) => handlePhone1Change(e)}
-        />
-        <input
-          className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
-          type="tel"
-          name="phoneNumber"
-          id="telephone2"
-          placeholder="+1 111-111-1111"
-          onChange={(e) => handlePhone2Change(e)}
-        />
-        <input
-          className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
-          type="email"
-          placeholder="example@example.com"
-          onChange={(e) => handleEmailChange(e)}
-        />
-        <input
-          className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
-          type="text"
-          placeholder="Address"
-          onChange={(e) => handleAddressChange(e)}
-        />
-        <input
-          className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
-          type="url"
-          placeholder="Website"
-          onChange={(e) => handleWebsiteChange(e)}
-        />
-        <div className="flex justify-evenly items-center">
-          <SingleImageDropzoneUsage handleProfileChange={handleProfileChange} />
-          <MultiFileDropzoneUsage handleAward={handleAward} />
+    <div className="lg:h-full w-full  p-10 text-white dark:text-gray-200">
+      <div className="w-full h-fit flex items-center justify-center relative">
+        <h1 className="font-bold text-center text-4xl mb-6">
+          Enter your data here
+        </h1>
+        <button
+          className="bg-white dark:bg-gray-600 hover:bg-white/80 py-3 px-5 absolute lg:right-10 right-2 top-10 rounded-full"
+          onClick={() => toggleUpdate()}
+        >
+          Update
+        </button>
+      </div>
+      <p className="mb-4 text-[20px] font-semibold h-fit">
+        Enter the following information:
+      </p>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-4/5 mx-auto">
+        <div className="flex flex-col mb-4">
+          <label htmlFor="name" className="mb-1">
+            Name
+          </label>
+          <input
+            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            onChange={(e) => handleNameChange(e)}
+          />
         </div>
+        <div className="flex flex-col mb-4">
+          <label htmlFor="designation" className="mb-1">
+            Designation
+          </label>
+          <input
+            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
+            type="text"
+            id="designation"
+            placeholder="Enter your designation"
+            onChange={(e) => handleDesignationChange(e)}
+          />
+        </div>
+        <div className="flex flex-col mb-4">
+          <label htmlFor="industry" className="mb-1">
+            Industry
+          </label>
+          <input
+            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
+            type="text"
+            id="industry"
+            placeholder="Enter your industry"
+            onChange={(e) => handleIndustryChange(e)}
+          />
+        </div>
+        <div className="flex flex-col mb-4">
+          <label htmlFor="phoneNumber1" className="mb-1">
+            Phone Number 1
+          </label>
+          <input
+            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
+            type="tel"
+            id="phoneNumber1"
+            placeholder="+1 111-111-1111"
+            onChange={(e) => handlePhone1Change(e)}
+          />
+        </div>
+        <div className="flex flex-col mb-4">
+          <label htmlFor="phoneNumber2" className="mb-1">
+            Phone Number 2
+          </label>
+          <input
+            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
+            type="tel"
+            id="phoneNumber2"
+            placeholder="+1 111-111-1111"
+            onChange={(e) => handlePhone2Change(e)}
+          />
+        </div>
+        <div className="flex flex-col mb-4">
+          <label htmlFor="email" className="mb-1">
+            Email
+          </label>
+          <input
+            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
+            type="email"
+            id="email"
+            placeholder="example@example.com"
+            onChange={(e) => handleEmailChange(e)}
+          />
+        </div>
+        <div className="flex flex-col mb-4">
+          <label htmlFor="address" className="mb-1">
+            Address
+          </label>
+          <input
+            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
+            type="text"
+            id="address"
+            placeholder="Address"
+            onChange={(e) => handleAddressChange(e)}
+          />
+        </div>
+        <div className="flex flex-col mb-4">
+          <label htmlFor="website" className="mb-1">
+            Website
+          </label>
+          <input
+            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
+            type="url"
+            id="website"
+            placeholder="Website"
+            onChange={(e) => handleWebsiteChange(e)}
+          />
+        </div>
+      </div>
+      <div className="flex justify-evenly items-center w-full flex-wrap">
+        <SingleImageDropzoneUsage handleProfileChange={handleProfileChange} />
+        <MultiFileDropzoneUsage handleAward={handleAward} />
       </div>
     </div>
   );

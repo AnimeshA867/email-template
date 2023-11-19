@@ -9,22 +9,23 @@ const AwardSection = ({ award }: { award: [string] | undefined }) => {
 
   return (
     <>
-      <ul>
-        {award?.map(
-          (val, index) =>
-            val !== "" && (
-              // <Image
-              //   key={index}
-              //   height={130}
-              //   width={130}
-              //   src={val}
-              //   alt=""
-              //   style={{ width: "130px", height: "130px" }}
-              // />
-              <li key={`${val}_${index}`}>{val}</li>
-            )
-        )}
-      </ul>
+      {award?.map(
+        (val, index) =>
+          val !== "" && (
+            <img
+              key={`${val}_${index}`}
+              src={val}
+              alt=""
+              style={{
+                width: "130px",
+                height: "130px",
+                objectFit: "contain",
+                objectPosition: "center",
+              }}
+            />
+            // <li key={`${val}_${index}`}>{val}</li>
+          )
+      )}
     </>
   );
 };

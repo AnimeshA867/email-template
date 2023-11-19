@@ -131,7 +131,7 @@ const MultiFileDropzone = React.forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div>
-        <div className="flex flex-col gap-2 bg-black/30">
+        <div className="flex flex-col gap-2">
           <div>
             {/* Main File Input */}
             <div
@@ -140,16 +140,16 @@ const MultiFileDropzone = React.forwardRef<HTMLInputElement, InputProps>(
               })}
             >
               <input ref={ref} {...getInputProps()} />
-              <div className="flex flex-col items-center justify-center text-xs text-gray-400">
+              <div className="flex flex-col items-center justify-center text-xs text-white ">
                 <UploadCloudIcon className="mb-1 h-7 w-7" />
-                <div className="text-gray-400">
+                <div className="text-white text-sm">
                   drag & drop or click to upload
                 </div>
               </div>
             </div>
 
             {/* Error Text */}
-            <div className="mt-1 text-xs text-red-500">
+            <div className="mt-1 text-md font-bold text-red-600 bg-white text-center">
               {customError ?? errorMessage}
             </div>
           </div>
@@ -166,7 +166,7 @@ const MultiFileDropzone = React.forwardRef<HTMLInputElement, InputProps>(
                   <div className="overflow-hidden overflow-ellipsis whitespace-nowrap">
                     {file.name}
                   </div>
-                  <div className="text-xs text-gray-400 dark:text-gray-400">
+                  <div className="text-xs text-white dark:text-white">
                     {formatFileSize(file.size)}
                   </div>
                 </div>

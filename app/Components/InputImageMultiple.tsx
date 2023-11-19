@@ -6,6 +6,7 @@ import {
 } from "./input dnd/MultiImageDropZone";
 import { useEdgeStore } from "../lib/edgestore";
 import { useState, useEffect } from "react";
+import Dropzone from "react-dropzone";
 interface type {
   handleAward: (value: [string]) => void;
 }
@@ -29,7 +30,7 @@ export function MultiFileDropzoneUsage({ handleAward }: type) {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <h2 className="font-semibold text-[20px] my-4 text-center">
+      <h2 className="font-semibold text-[20px] my-4 text-center text-white">
         Select Images for Awards
       </h2>
       <MultiFileDropzone
@@ -58,7 +59,9 @@ export function MultiFileDropzoneUsage({ handleAward }: type) {
                     }
                   },
                 });
+
                 photos.push(res.url);
+
                 handleAward(photos);
               } catch (err) {
                 updateFileProgress(addedFileState.key, "ERROR");
@@ -66,12 +69,15 @@ export function MultiFileDropzoneUsage({ handleAward }: type) {
             })
           );
         }}
+        dropzoneOptions={{ maxFiles: 2, maxSize: 1024 * 200 }}
       />
+
       <button
         className="px-3 py-3 bg-red-600/80 text-white text-[20px] font-semibold mt-4 rounded-lg hover:bg-red-700/80"
         onClick={() => {
           setFileStates([]);
           setPhotos([""]);
+          handleAward([""]);
         }}
       >
         Clear

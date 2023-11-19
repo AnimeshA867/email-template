@@ -9,17 +9,21 @@ interface type {
 export function SingleImageDropzoneUsage({ handleProfileChange }: type) {
   const [file, setFile] = useState<File>();
   const { edgestore } = useEdgeStore();
+  const [progress, setProgress] = useState(0);
 
   return (
-    <div className="flex flex-col items-center gap-2">
+    <div className="flex flex-col items-center gap-2 relative">
       <SingleImageDropzone
-        width={200}
-        height={200}
+        width={50}
+        height={50}
         value={file}
         onChange={(file) => {
           setFile(file);
         }}
       />
+      {progress != 0 && (
+        <span className="w-[48px] h-[48px] border-white  border-t-[4px] rounded-full animation absolute top-1/2 left-1/2 tranform -translate-x-1/2 -translate-y-1/2 z-10"></span>
+      )}
       <button
         className="bg-blue-500 px-5 py-3 rounded-full text-white"
         onClick={async () => {
@@ -31,7 +35,10 @@ export function SingleImageDropzoneUsage({ handleProfileChange }: type) {
               },
               onProgressChange: (progress) => {
                 // you can use this to show a progress bar
-                console.log(progress);
+                setProgress(progress);
+                if (progress == 100) {
+                  setProgress(0);
+                }
               },
             });
 
