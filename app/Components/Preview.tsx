@@ -51,18 +51,20 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
             <table className="logo lg:w-[820px] lg:h-[151px] w-[360px] h-[50px] ">
               <tbody>
                 <tr>
-                  <td className="relative">
-                    <div className=" w-[350px] h-[75px] lg:w-[820px] lg:h-[150px] bg-no-repeat bg-center bg-contain bg-[url(https://i.ibb.co/LvZybc9/finalmd.png)]">
-                      <div className="bg-white h-[52px] w-[52px] top-[11px] left-[5px]  lg:h-[125px] lg:w-[125px] rounded-full relative lg:top-[13px] lg:left-[10px] object-contain bg-no-repeat flex justify-center items-center ">
-                        {profile !== "" && (
-                          <img
-                            src={profile}
-                            alt=""
-                            className="h-full w-full object-cover object-center"
-                          />
-                        )}
-                      </div>
-                    </div>
+                  <td className=" w-[350px] h-[75px] lg:w-[820px] lg:h-[150px] bg-no-repeat  relative">
+                    <img
+                      src="https://i.ibb.co/LvZybc9/finalmd.png"
+                      alt=""
+                      className="absolute top-0 left-0 h-full w-full object-contain"
+                    />
+
+                    {profile !== "" && (
+                      <img
+                        src={profile}
+                        alt=""
+                        className="object-cover bg-white h-[52px] w-[52px] top-[11px] left-[5px]  lg:h-[125px] lg:w-[125px] rounded-full relative lg:top-[0px] lg:left-[12px] object-contain bg-no-repeat flex justify-center items-center overflow-hidden object-center"
+                      />
+                    )}
                   </td>
                 </tr>
               </tbody>
@@ -85,30 +87,65 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                     <br />
                     <br />
                   </td>
-
                   <td className="p-2 text-center no-underline flex justify-evenly w-fit gap-1 lg:gap-2 lg:p-0">
-                    <a href="https://www.facebook.com/MDSOUTHPORT">
-                      <div className="lg:h-[30px] lg:w-[30px] h-[20px] w-[20px] bg-[url(https://dasraa.com/MultiDynamicEmail/facebook.png)] bg-contain"></div>
-                    </a>
-                    <a href="https://www.instagram.com/mdsouthport/">
-                      <div className="lg:h-[30px] lg:w-[30px] h-[20px] w-[20px] bg-[url(https://dasraa.com/MultiDynamicEmail/insta.png)] bg-contain"></div>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/multi-dynamic-61bb8b287/
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td className="px-2">
+                            <a href="https://www.facebook.com/MDSOUTHPORT">
+                              <img
+                                className="lg:h-[30px] lg:w-[30px] h-[20px] w-[20px] object-contain"
+                                src="https://dasraa.com/MultiDynamicEmail/facebook.png"
+                                alt=""
+                              />
+                            </a>
+                          </td>
+                          <td className="px-2">
+                            <a href="https://www.instagram.com/mdsouthport/">
+                              <img
+                                className="lg:h-[30px] lg:w-[30px] h-[20px] w-[20px] object-contain"
+                                src="https://dasraa.com/MultiDynamicEmail/insta.png"
+                                alt=""
+                              />
+                            </a>
+                          </td>
+                          <td className="px-2">
+                            <a
+                              href="https://www.linkedin.com/in/multi-dynamic-61bb8b287/
 
               "
-                    >
-                      <div className="lg:h-[30px] lg:w-[30px] h-[20px] w-[20px] bg-[url(https://dasraa.com/MultiDynamicEmail/linkedin.png)] bg-contain"></div>
-                    </a>
-                    <a href="https://twitter.com/_multidynamic">
-                      <div className="lg:h-[30px] lg:w-[30px] h-[20px] w-[20px] bg-[url(https://dasraa.com/MultiDynamicEmail/twitter.png)] bg-contain"></div>
-                    </a>
-                    <a
-                      href="https://www.youtube.com/@MultiDynamicSouthport
+                            >
+                              <img
+                                className="lg:h-[30px] lg:w-[30px] h-[20px] w-[20px] object-contain"
+                                src="https://dasraa.com/MultiDynamicEmail/linkedin.png"
+                                alt=""
+                              />
+                            </a>
+                          </td>
+                          <td className="px-2">
+                            <a href="https://twitter.com/_multidynamic">
+                              <img
+                                className="lg:h-[30px] lg:w-[30px] h-[20px] w-[20px] object-contain"
+                                src="https://dasraa.com/MultiDynamicEmail/twitter.png"
+                                alt=""
+                              />
+                            </a>
+                          </td>
+                          <td className="px-2">
+                            <a
+                              href="https://www.youtube.com/@MultiDynamicSouthport
              "
-                    >
-                      <div className="lg:h-[30px] lg:w-[30px] h-[20px] w-[20px] bg-[url(https://dasraa.com/MultiDynamicEmail/youtube.png)] bg-contain"></div>
-                    </a>
+                            >
+                              <img
+                                className="lg:h-[30px] lg:w-[30px] h-[20px] w-[20px] object-contain"
+                                src="https://dasraa.com/MultiDynamicEmail/youtube.png"
+                                alt=""
+                              />
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </td>
                 </tr>
               </tbody>
@@ -122,7 +159,11 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                       <tbody>
                         <tr>
                           <td>
-                            <div className="lg:h-[25px] lg:w-[25px] h-[15px] w-[15px] bg-contain bg-[url(https://dasraa.com/MultiDynamicEmail/phone.png)]"></div>
+                            <img
+                              src="https://dasraa.com/MultiDynamicEmail/phone.png"
+                              alt=""
+                              className="lg:h-[25px] lg:w-[25px] h-[15px] w-[15px] object-contain "
+                            />
                           </td>
                           <td>
                             <p className={`lg:text-[15px] text-[11px]`}>
@@ -134,7 +175,11 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                         </tr>
                         <tr>
                           <td>
-                            <div className="lg:h-[25px] lg:w-[25px] h-[15px] w-[15px] bg-contain bg-[url(https://dasraa.com/MultiDynamicEmail/email.png)]"></div>
+                            <img
+                              src="https://dasraa.com/MultiDynamicEmail/email.png"
+                              alt=""
+                              className="lg:h-[25px] lg:w-[25px] h-[15px] w-[15px] object-contain "
+                            />
                           </td>
                           <td>
                             <p className={`lg:text-[15px] text-[11px]`}>
@@ -144,7 +189,11 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                         </tr>
                         <tr>
                           <td>
-                            <div className="lg:h-[25px] lg:w-[25px] h-[15px] w-[15px] bg-contain bg-[url(https://dasraa.com/MultiDynamicEmail/location.png)]"></div>
+                            <img
+                              src="https://dasraa.com/MultiDynamicEmail/location.png"
+                              alt=""
+                              className="lg:h-[25px] lg:w-[25px] h-[15px] w-[15px] object-contain "
+                            />
                           </td>
                           <td>
                             <p className={`lg:text-[15px] text-[11px]`}>
@@ -156,7 +205,11 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                         </tr>
                         <tr>
                           <td>
-                            <div className="lg:h-[25px] lg:w-[25px] h-[15px] w-[15px] bg-contain bg-[url(https://dasraa.com/MultiDynamicEmail/website.png)]"></div>
+                            <img
+                              src="https://dasraa.com/MultiDynamicEmail/website.png"
+                              alt=""
+                              className="lg:h-[25px] lg:w-[25px] h-[15px] w-[15px] object-contain "
+                            />
                           </td>
                           <td>
                             <p className={`lg:text-[15px] text-[11px]`}>
@@ -168,10 +221,6 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                     </table>
                   </td>
                   <td className="flex gap-[4px] w-fit h-auto  mr-[10px] flex-row-reverse ">
-                    {/* <AwardSection
-                      award={award}
-                      key={JSON.stringify(new Date().getMilliseconds)}
-                    /> */}
                     {award?.map(
                       (val, index) =>
                         val !== "" && (
@@ -193,7 +242,11 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
               <tbody>
                 <tr>
                   <td className="lg:w-[820px] w-[350px] h-[20px]">
-                    <div className="lg:w-full lg:h-[60px] h-full bg-contain bg-[url(https://dasraa.com/MultiDynamicEmail/Footer.png)]"></div>
+                    <img
+                      src="https://dasraa.com/MultiDynamicEmail/Footer.png"
+                      alt=""
+                      className="lg:w-full lg:h-[60px] h-full object-contain "
+                    />
                   </td>
                 </tr>
               </tbody>
