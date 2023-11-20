@@ -30,17 +30,11 @@ const Form = ({
   return (
     <div className="lg:h-full w-full  p-10 text-white dark:text-gray-200">
       <div className="w-full h-fit flex items-center justify-center relative">
-        <h1 className="font-bold text-center text-4xl mb-6">
+        <h1 className="font-bold text-center lg:text-4xl text-xl mb-6">
           Enter your data here
         </h1>
-        <button
-          className="bg-white dark:bg-gray-600 hover:bg-white/80 py-3 px-5 absolute lg:right-10 right-2 top-10 rounded-full"
-          onClick={() => toggleUpdate()}
-        >
-          Update
-        </button>
       </div>
-      <p className="mb-4 text-[20px] font-semibold h-fit">
+      <p className="mb-4 lg:text-[20px] text-lg font-semibold h-fit ">
         Enter the following information:
       </p>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-4/5 mx-auto">
@@ -49,7 +43,7 @@ const Form = ({
             Name
           </label>
           <input
-            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
+            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 text-black"
             type="text"
             id="name"
             placeholder="Enter your name"
@@ -61,7 +55,7 @@ const Form = ({
             Designation
           </label>
           <input
-            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
+            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 text-black"
             type="text"
             id="designation"
             placeholder="Enter your designation"
@@ -73,7 +67,7 @@ const Form = ({
             Industry
           </label>
           <input
-            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
+            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 text-black"
             type="text"
             id="industry"
             placeholder="Enter your industry"
@@ -85,7 +79,7 @@ const Form = ({
             Phone Number 1
           </label>
           <input
-            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
+            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 text-black invalid:border-red-500"
             type="tel"
             id="phoneNumber1"
             placeholder="+1 111-111-1111"
@@ -97,7 +91,7 @@ const Form = ({
             Phone Number 2
           </label>
           <input
-            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
+            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 text-black"
             type="tel"
             id="phoneNumber2"
             placeholder="+1 111-111-1111"
@@ -109,7 +103,7 @@ const Form = ({
             Email
           </label>
           <input
-            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
+            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 text-black"
             type="email"
             id="email"
             placeholder="example@example.com"
@@ -121,7 +115,7 @@ const Form = ({
             Address
           </label>
           <input
-            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
+            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 text-black"
             type="text"
             id="address"
             placeholder="Address"
@@ -133,7 +127,7 @@ const Form = ({
             Website
           </label>
           <input
-            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
+            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 text-black invalid:border-red-500"
             type="url"
             id="website"
             placeholder="Website"
@@ -143,7 +137,10 @@ const Form = ({
       </div>
       <div className="flex justify-evenly items-center w-full flex-wrap">
         <SingleImageDropzoneUsage handleProfileChange={handleProfileChange} />
-        <MultiFileDropzoneUsage handleAward={handleAward} />
+        <MultiFileDropzoneUsage
+          handleAward={handleAward}
+          toggleUpdate={toggleUpdate}
+        />
       </div>
     </div>
   );

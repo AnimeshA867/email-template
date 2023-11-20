@@ -45,9 +45,15 @@ table tr,
 table td {
   height: 30px;
   font-size: 14px;
-  line-height: 15px;
+  line-height: 11px;
   vertical-align: center;
   font-family: Tahoma;
+}
+@media (min-width: 1024px) {
+  table tr,
+  table td {
+    line-height: 15px;
+  }
 }
 
 table.address tr td:first-child {

@@ -33,75 +33,34 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
     ref
   ) => {
     return (
-      <div className="h-full w-full flex flex-col items-center justify-around ">
-        <h1 className="text-[40px] font-bold">Preview</h1>
-        <div ref={ref} className="border-black/40 border-[2px]">
+      <div className=" flex flex-col lg:items-center lg:justify-evenly  w-full h-full justify-center items-center">
+        <h1 className="lg:text-[40px] text-[30px] font-bold ">Preview</h1>
+        <div
+          ref={ref}
+          className="border-black/40 border-[2px overflow-hidden lg:w-[820px] w-[350px]"
+        >
           {" "}
-          <h4 style={{ color: "#004c98", fontSize: "16px", fontWeight: "600" }}>
+          <h4
+            // style={{ color: "#004c98", fontSize: "16px", fontWeight: "600" }}
+            className="font-semibold lg:text-[16px] text-[10px]  text-[#004c98]"
+          >
             If you need any further information, please do not hesitate to
             contact me. <br /> <br /> Kind Regards,
           </h4>
-          <div className="signature" style={{ width: "820px" }}>
-            {/* <div className="logo" style={{ width: "820px" }}>
-          <Image
-            height={600}
-            width={600}
-            src={profile}
-            alt="MultiDynamic"
-            style={{ width: "820px", height: "auto" }}
-          />
-        </div> */}
-            <table className="logo" style={{ width: "820px", height: "151px" }}>
+          <div className="signature lg:w-[820px] w-[360px] h-fit">
+            <table className="logo lg:w-[820px] lg:h-[151px] w-[360px] h-[50px] ">
               <tbody>
                 <tr>
-                  <td style={{ position: "relative" }}>
-                    <div
-                      style={{
-                        backgroundImage:
-                          "url(https://i.ibb.co/LvZybc9/finalmd.png)",
-                        width: "820px",
-                        height: "150px",
-
-                        backgroundRepeat: "no-repeat",
-                        backgroundSize: "cover",
-                      }}
-                    >
-                      <div
-                        style={{
-                          //   backgroundImage: `url(${profile})`,
-                          background: "white",
-                          height: "125px",
-                          width: "125px",
-                          borderRadius: "50%",
-                          position: "relative",
-                          top: "13px",
-                          left: "10px",
-                          objectFit: "contain",
-                          backgroundRepeat: "no-repeat",
-                          overflow: "hidden",
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                      >
-                        <img
-                          src={profile}
-                          alt=""
-                          style={{
-                            height: "100%",
-                            width: "100%",
-                            objectFit: "cover",
-                            objectPosition: "center",
-                          }}
-                        />
-                        {/* <div
-                          style={{
-                            height: "100%",
-                            width: "auto",
-                            aspectRatio: "1/1",
-                            backgroundImage: `url(${profile})`,
-                          }}
-                        ></div> */}
+                  <td className="relative">
+                    <div className=" w-[350px] h-[75px] lg:w-[820px] lg:h-[150px] bg-no-repeat bg-center bg-contain bg-[url(https://i.ibb.co/LvZybc9/finalmd.png)]">
+                      <div className="bg-white h-[52px] w-[52px] top-[11px] left-[5px]  lg:h-[125px] lg:w-[125px] rounded-full relative lg:top-[13px] lg:left-[10px] object-contain bg-no-repeat flex justify-center items-center ">
+                        {profile !== "" && (
+                          <img
+                            src={profile}
+                            alt=""
+                            className="h-full w-full object-cover object-center"
+                          />
+                        )}
                       </div>
                     </div>
                   </td>
@@ -109,232 +68,87 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
               </tbody>
             </table>
 
-            <table className="social-icons" style={{ width: "100%" }}>
+            <table className="social-icons w-full">
               <tbody>
                 <tr style={{ padding: "0%" }}>
-                  <td style={{ width: "70%", padding: "0%" }}>
-                    <h2
-                      style={{
-                        width: "100%",
-                        padding: "5px",
-                        color: "#004c98",
-                        fontSize: "20px",
-                        fontWeight: "600",
-                      }}
-                    >
+                  <td className="lg:w-[70%] w-[50%]">
+                    <h2 className="w-full p-[3px] lg:p-[5px] text-[#004c98] lg:text-[20px] font-semibold text-[13px]">
                       {name}
                     </h2>
 
-                    <p
-                      style={{
-                        width: "100%",
-                        padding: "5px",
-                        fontSize: "18px",
-                        color: "#004c98",
-                      }}
-                    >
+                    <p className="w-full p-[3px] lg:p-[5px] text-[13px] lg:text-[18px] text-[#004c98]">
                       <i>{designation}</i>
                     </p>
-                    <h2
-                      style={{
-                        width: "100%",
-                        padding: "5px",
-                        color: "#004c98",
-                        fontSize: "20px",
-                        fontWeight: "600",
-                      }}
-                    >
+                    <h2 className="w-full p-[3px] lg:p-[5px] text-[#004c98] lg:text-[20px] font-semibold text-[13px]">
                       {industry}
                     </h2>
                     <br />
                     <br />
                   </td>
 
-                  <td
-                    style={{
-                      //   width: "40%",
-                      padding: "0%",
-                      textAlign: "center",
-                      textDecoration: "none",
-                      display: "flex",
-                      justifyContent: "space-evenly",
-                    }}
-                  >
+                  <td className="p-2 text-center no-underline flex justify-evenly w-fit gap-1 lg:gap-2 lg:p-0">
                     <a href="https://www.facebook.com/MDSOUTHPORT">
-                      {/* <Image
-                        src="https://dasraa.com/MultiDynamicEmail/facebook.png"
-                        alt=""
-                        height={30}
-                        width={30}
-                        // style={{ width: "30px", height: "30px" }}
-                      /> */}
-                      <div
-                        style={{
-                          height: "30px",
-                          width: "30px",
-                          backgroundImage:
-                            "url(https://dasraa.com/MultiDynamicEmail/facebook.png)",
-                          backgroundSize: "cover",
-                        }}
-                      ></div>
+                      <div className="lg:h-[30px] lg:w-[30px] h-[20px] w-[20px] bg-[url(https://dasraa.com/MultiDynamicEmail/facebook.png)] bg-contain"></div>
                     </a>
                     <a href="https://www.instagram.com/mdsouthport/">
-                      {/* <Image
-                        src="https://dasraa.com/MultiDynamicEmail/insta.png"
-                        alt=""
-                        height={30}
-                        width={30}
-                        // style={{ width: "30px", height: "30px" }}
-                      /> */}
-                      <div
-                        style={{
-                          height: "30px",
-                          width: "30px",
-                          backgroundImage:
-                            "url(https://dasraa.com/MultiDynamicEmail/insta.png)",
-                        }}
-                      ></div>
+                      <div className="lg:h-[30px] lg:w-[30px] h-[20px] w-[20px] bg-[url(https://dasraa.com/MultiDynamicEmail/insta.png)] bg-contain"></div>
                     </a>
                     <a
                       href="https://www.linkedin.com/in/multi-dynamic-61bb8b287/
 
               "
                     >
-                      {/* <Image
-                        height={30}
-                        width={30}
-                        src="https://dasraa.com/MultiDynamicEmail/linkedin.png"
-                        alt=""
-                        // style={{ width: "30px", height: "30px" }}
-                      /> */}
-                      <div
-                        style={{
-                          height: "30px",
-                          width: "30px",
-                          backgroundImage:
-                            "url(https://dasraa.com/MultiDynamicEmail/linkedin.png)",
-                        }}
-                      ></div>
+                      <div className="lg:h-[30px] lg:w-[30px] h-[20px] w-[20px] bg-[url(https://dasraa.com/MultiDynamicEmail/linkedin.png)] bg-contain"></div>
                     </a>
                     <a href="https://twitter.com/_multidynamic">
-                      {/* <Image
-                        height={30}
-                        width={30}
-                        src="https://dasraa.com/MultiDynamicEmail/twitter.png"
-                        alt=""
-                        // style={{ width: "30px", height: "30px" }}
-                      /> */}
-                      <div
-                        style={{
-                          height: "30px",
-                          width: "30px",
-                          backgroundImage:
-                            "url(https://dasraa.com/MultiDynamicEmail/twitter.png)",
-                        }}
-                      ></div>
+                      <div className="lg:h-[30px] lg:w-[30px] h-[20px] w-[20px] bg-[url(https://dasraa.com/MultiDynamicEmail/twitter.png)] bg-contain"></div>
                     </a>
                     <a
                       href="https://www.youtube.com/@MultiDynamicSouthport
              "
                     >
-                      {/* <Image
-                        height={30}
-                        width={30}
-                        src="https://dasraa.com/MultiDynamicEmail/youtube.png"
-                        alt=""
-                        // style={{ width: "30px", height: "30px" }}
-                      /> */}
-                      <div
-                        style={{
-                          height: "30px",
-                          width: "30px",
-                          backgroundImage:
-                            "url(https://dasraa.com/MultiDynamicEmail/youtube.png)",
-                        }}
-                      ></div>
+                      <div className="lg:h-[30px] lg:w-[30px] h-[20px] w-[20px] bg-[url(https://dasraa.com/MultiDynamicEmail/youtube.png)] bg-contain"></div>
                     </a>
                   </td>
                 </tr>
               </tbody>
             </table>
 
-            <table style={{ width: "100%" }}>
+            <table className="w-full relative h-fit">
               <tbody>
-                <tr>
-                  <td style={{ width: "500px" }}>
+                <tr className="">
+                  <td className="lg:w-2/4 w-2/4">
                     <table className="address">
                       <tbody>
                         <tr>
                           <td>
-                            {/* <Image
-                              height={25}
-                              width={25}
-                              src="https://dasraa.com/MultiDynamicEmail/phone.png"
-                              alt=""
-                              // style={{ width: "25px", height: " 25px" }}
-                            /> */}
-                            <div
-                              style={{
-                                height: "25px",
-                                width: "25px",
-                                backgroundImage:
-                                  "url(https://dasraa.com/MultiDynamicEmail/phone.png)",
-                              }}
-                            ></div>
+                            <div className="lg:h-[25px] lg:w-[25px] h-[15px] w-[15px] bg-contain bg-[url(https://dasraa.com/MultiDynamicEmail/phone.png)]"></div>
                           </td>
                           <td>
-                            <p>
-                              <a href="tel:+61756089845 ">{phone1}</a>
+                            <p className={`lg:text-[15px] text-[11px]`}>
+                              <a href={`tel:+${phone1} `}>{phone1}</a>
                               &nbsp;&nbsp;•&nbsp;&nbsp;
-                              <a
-                                href="tel: +61484575612
-                      "
-                              >
-                                {phone2}
-                              </a>
+                              <a href={`tel:+${phone2} `}>{phone2}</a>
                             </p>
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            <div
-                              style={{
-                                height: "25px",
-                                width: "25px",
-                                backgroundImage:
-                                  "url(https://dasraa.com/MultiDynamicEmail/email.png)",
-                              }}
-                            ></div>
+                            <div className="lg:h-[25px] lg:w-[25px] h-[15px] w-[15px] bg-contain bg-[url(https://dasraa.com/MultiDynamicEmail/email.png)]"></div>
                           </td>
                           <td>
-                            <p>
-                              <a href="mailto: rentals.southport@multidynamic.com.au">
-                                {email}
-                              </a>
+                            <p className={`lg:text-[15px] text-[11px]`}>
+                              <a href={`mailto: ${email}`}>{email}</a>
                             </p>
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            {/* <Image
-                              height={25}
-                              width={25}
-                              src="https://dasraa.com/MultiDynamicEmail/location.png"
-                              alt=""
-                              // style={{ width: "25px", height: " 25px" }}
-                            /> */}
-                            <div
-                              style={{
-                                height: "25px",
-                                width: "25px",
-                                backgroundImage:
-                                  "url(https://dasraa.com/MultiDynamicEmail/location.png)",
-                              }}
-                            ></div>
+                            <div className="lg:h-[25px] lg:w-[25px] h-[15px] w-[15px] bg-contain bg-[url(https://dasraa.com/MultiDynamicEmail/location.png)]"></div>
                           </td>
                           <td>
-                            <p>
-                              <a href="https://goo.gl/maps/cABKBmhmYtkP4ZiS7">
+                            <p className={`lg:text-[15px] text-[11px]`}>
+                              <a href={`#`} className="pointer-event-none">
                                 {address}
                               </a>
                             </p>
@@ -342,103 +156,54 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                         </tr>
                         <tr>
                           <td>
-                            {/* <Image
-                              height={25}
-                              width={25}
-                              src="https://dasraa.com/MultiDynamicEmail/website.png"
-                              alt=""
-                              // style={{ width: "25px", height: " 25px" }}
-                            /> */}
-                            <div
-                              style={{
-                                height: "25px",
-                                width: "25px",
-                                backgroundImage:
-                                  "url(https://dasraa.com/MultiDynamicEmail/website.png)",
-                              }}
-                            ></div>
+                            <div className="lg:h-[25px] lg:w-[25px] h-[15px] w-[15px] bg-contain bg-[url(https://dasraa.com/MultiDynamicEmail/website.png)]"></div>
                           </td>
                           <td>
-                            <p>
-                              <a href="https://southport.multidynamic.com.au/">
-                                {website}
-                              </a>
+                            <p className={`lg:text-[15px] text-[11px]`}>
+                              <a href={`${website}`}>{website}</a>
                             </p>
                           </td>
                         </tr>
                       </tbody>
                     </table>
                   </td>
-                  <td
-                    style={{
-                      display: "flex",
-                      gap: "4px",
-                      width: "fit",
-                      height: "auto",
-                      flexDirection: "row",
-                      marginRight: "10px",
-                      justifyContent: "flex-end",
-                    }}
-                  >
-                    <AwardSection
+                  <td className="flex gap-[4px] w-fit h-auto  mr-[10px] flex-row-reverse ">
+                    {/* <AwardSection
                       award={award}
                       key={JSON.stringify(new Date().getMilliseconds)}
-                    />
-
-                    {/* <Image
-                  height={130}
-                  width={130}
-                  src={profile}
-                  alt=""
-                  style={{ width: "130px", height: "130px" }}
-                /> */}
+                    /> */}
+                    {award?.map(
+                      (val, index) =>
+                        val !== "" && (
+                          <img
+                            key={`${val}_${index}`}
+                            src={val}
+                            alt=""
+                            className={`lg:w-[130px] lg:h-[130px] object-contain object-center w-[70px] h-[70px]`}
+                          />
+                          // <li key={`${val}_${index}`}>{val}</li>
+                        )
+                    )}
                   </td>
                 </tr>
               </tbody>
             </table>
 
-            <table className="footer" style={{ width: "820px", height: "10%" }}>
+            <table className="footer lg:w-[820px] w-[350px] h-1/5">
               <tbody>
                 <tr>
-                  <td style={{ width: "820px" }}>
-                    {/* <Image
-                      src="https://dasraa.com/MultiDynamicEmail/Footer.png"
-                      height={900}
-                      width={900}
-                      alt=""
-                      style={{ width: "100%", height: "auto" }}
-                    /> */}
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "60px",
-                        backgroundImage:
-                          "url(https://dasraa.com/MultiDynamicEmail/Footer.png)",
-                      }}
-                    ></div>
+                  <td className="lg:w-[820px] w-[350px] h-[20px]">
+                    <div className="lg:w-full lg:h-[60px] h-full bg-contain bg-[url(https://dasraa.com/MultiDynamicEmail/Footer.png)]"></div>
                   </td>
                 </tr>
               </tbody>
             </table>
 
-            {/* <!-- <div className="footer" style="width: 820px ; height:10%;">
-        <img src="https://dasraa.com/MultiDynamicEmail/Footer.png" />
-      </div> --> */}
-
-            <table
-              className="desclaimer"
-              style={{ height: "10%", width: "100%" }}
-            >
+            <table className="desclaimer h-1/5 lg:w-full w-[350px]">
               <tbody>
                 <tr>
                   <td>
-                    <p
-                      style={{
-                        color: "#666666",
-                        fontSize: "11px",
-                        lineHeight: "100%",
-                      }}
-                    >
+                    <p className="text-[#666666] lg:text-[11px] text-[9px] leading-tight">
                       <b>Disclaimer:</b> This email is for its intended
                       recipient only. If this email has been sent to you by
                       error or contains private or confidential information,

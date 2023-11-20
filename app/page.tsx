@@ -106,6 +106,27 @@ export default function Home() {
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <script src="https://cdn.tailwindcss.com"></script>
+      <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+</head>
+      <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+    }
+  </style>
     <title>Gmail Signature for ${name}</title>
 
     <style>
@@ -123,15 +144,20 @@ export default function Home() {
         color: #004c98;
         border-spacing: 0;
       }
-
-      table tr,
-      table td {
-        height: 30px;
-        font-size: 14px;
-        line-height: 15px;
-        vertical-align: center;
-        font-family: Tahoma;
-      }
+table tr,
+table td {
+  height: 30px;
+  font-size: 14px;
+  line-height: 11px;
+  vertical-align: center;
+  font-family: Tahoma;
+}
+@media (min-width: 1024px) {
+  table tr,
+  table td {
+    line-height: 15px;
+  }
+}
 
       table.address tr td:first-child {
         padding-right: 10px;
@@ -181,7 +207,7 @@ export default function Home() {
 
   // console.log(previewRef.current);
   return (
-    <main className="flex min-h-screen lg:flex-row flex-col  gap-4 w-full h-full ">
+    <main className="flex min-h-screen lg:flex-row flex-col  gap-4 ">
       <div className="lg:w-1/2 lg:h-auto w-full  group  bg-gray-700">
         <Form
           handleNameChange={handleNameChange}
@@ -197,7 +223,7 @@ export default function Home() {
           toggleUpdate={toggleUpdate}
         />
       </div>
-      <div className="lg:w-1/2 w-full lg:h-auto  group relative">
+      <div className="lg:w-1/2 w-full  group relative lg:h-auto h-auto">
         <Preview
           name={name}
           designation={designation}

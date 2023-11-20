@@ -9,8 +9,9 @@ import { useState, useEffect } from "react";
 import Dropzone from "react-dropzone";
 interface type {
   handleAward: (value: [string]) => void;
+  toggleUpdate: () => void;
 }
-export function MultiFileDropzoneUsage({ handleAward }: type) {
+export function MultiFileDropzoneUsage({ handleAward, toggleUpdate }: type) {
   const [fileStates, setFileStates] = useState<FileState[]>([]);
   const { edgestore } = useEdgeStore();
   const [photos, setPhotos] = useState<[string]>([""]);
@@ -71,17 +72,24 @@ export function MultiFileDropzoneUsage({ handleAward }: type) {
         }}
         dropzoneOptions={{ maxFiles: 2, maxSize: 1024 * 200 }}
       />
-
-      <button
-        className="px-3 py-3 bg-red-600/80 text-white text-[20px] font-semibold mt-4 rounded-lg hover:bg-red-700/80"
-        onClick={() => {
-          setFileStates([]);
-          setPhotos([""]);
-          handleAward([""]);
-        }}
-      >
-        Clear
-      </button>
+      <div className="bg-white/20 w-fit px-8 py-4 flex justify-center items-center gap-4 border-dotted border-2 border-black">
+        <button
+          className="px-3 py-3 bg-blue-600/80 text-white text-[20px] font-semibold rounded-lg hover:bg-blue-700/80"
+          onClick={() => toggleUpdate()}
+        >
+          Update
+        </button>
+        <button
+          className="px-3 py-3 bg-red-600/80 text-white text-[20px] font-semibold rounded-lg hover:bg-red-700/80"
+          onClick={() => {
+            setFileStates([]);
+            setPhotos([""]);
+            handleAward([""]);
+          }}
+        >
+          Clear
+        </button>
+      </div>
     </div>
   );
 }
