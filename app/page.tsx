@@ -107,7 +107,6 @@ export default function Home() {
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
 
     <title>Gmail Signature for ${name}</title>
 
@@ -130,10 +129,12 @@ table tr,
 table td {
   height: 30px;
   font-size: 14px;
+
   line-height: 14px;
   vertical-align: center;
   font-family: Tahoma;
 }
+
 
 
       table.address tr td:first-child {

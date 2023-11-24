@@ -137,7 +137,9 @@ const Form = ({
       </div>
       <div className="flex justify-evenly items-center w-full flex-wrap">
         <SingleImageDropzoneUsage handleProfileChange={handleProfileChange} />
+
         <SingleImageDropzoneUsage handleProfileChange={handleAward} />
+
       </div>
     </div>
   );
