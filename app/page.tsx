@@ -16,14 +16,14 @@ export default function Home() {
   const [address, setAddress] = useState("Address, Address");
   const [website, setWebsite] = useState("Something.com");
   const [profile, setProfile] = useState("");
-  const [award, setAward] = useState<[string]>();
-  const [images, setImages] = useState<[string] | undefined>();
+  const [award, setAward] = useState("");
+
   const [update, setUpdate] = useState(false);
   const [copyStatus, setCopyStatus] = useState(false);
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
   };
-  const handleAward = (arr: [string]) => {
+  const handleAward = (arr: string) => {
     setAward(arr);
   };
   const handleDesignationChange = (
@@ -59,7 +59,8 @@ export default function Home() {
   };
   const toggleUpdate = () => {
     setUpdate(true);
-    setImages(award);
+    setAward("");
+    setProfile("");
     console.log(award);
     console.log("Toggle function is working");
   };
@@ -106,6 +107,8 @@ export default function Home() {
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+
     <title>Gmail Signature for ${name}</title>
 
     <style>
@@ -123,15 +126,15 @@ export default function Home() {
         color: #004c98;
         border-spacing: 0;
       }
+table tr,
+table td {
+  height: 30px;
+  font-size: 14px;
+  line-height: 14px;
+  vertical-align: center;
+  font-family: Tahoma;
+}
 
-      table tr,
-      table td {
-        height: 30px;
-        font-size: 14px;
-        line-height: 15px;
-        vertical-align: center;
-        font-family: Tahoma;
-      }
 
       table.address tr td:first-child {
         padding-right: 10px;
@@ -181,7 +184,7 @@ export default function Home() {
 
   // console.log(previewRef.current);
   return (
-    <main className="flex min-h-screen lg:flex-row flex-col  gap-4 w-full h-full ">
+    <main className="flex min-h-screen lg:flex-row flex-col  gap-4 ">
       <div className="lg:w-1/2 lg:h-auto w-full  group  bg-gray-700">
         <Form
           handleNameChange={handleNameChange}
@@ -197,7 +200,7 @@ export default function Home() {
           toggleUpdate={toggleUpdate}
         />
       </div>
-      <div className="lg:w-1/2 w-full lg:h-auto  group relative">
+      <div className="lg:w-1/2 w-full  group relative lg:h-auto h-auto">
         <Preview
           name={name}
           designation={designation}
@@ -208,7 +211,7 @@ export default function Home() {
           address={address}
           website={website}
           profile={profile}
-          award={images}
+          award={award}
           update={update}
           ref={previewRef}
         />
