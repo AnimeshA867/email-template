@@ -37,7 +37,7 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
           {" "}
           <h4 style={{ color: "#004c98", fontSize: "16px", fontWeight: "600" }}>
             If you need any further information, please do not hesitate to
-            contact me. <hr /> <br />
+            contact me. <br />
             Kind Regards,
           </h4>
           <div className="signature" style={{ width: "820px" }}>
@@ -214,9 +214,7 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                           </td>
                           <td>
                             <p>
-                              <a href="mailto: rentals.southport@multidynamic.com.au">
-                                {email}
-                              </a>
+                              <a href={`mailto:${email}`}>{email}</a>
                             </p>
                           </td>
                         </tr>
@@ -271,9 +269,7 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                           </td>
                           <td>
                             <p>
-                              <a href="https://southport.multidynamic.com.au/">
-                                {website}
-                              </a>
+                              <a href={`${website}`}>{website}</a>
                             </p>
                           </td>
                         </tr>
@@ -320,11 +316,11 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                     /> */}
 
                     <img
-                      src="https://dasraa.com/MultiDynamicEmail/Footer.png"
+                      src="https://i.ibb.co/wBFB0RS/footer.png"
                       alt=""
                       style={{
                         width: "100%",
-                        height: "60px",
+                        height: "111px",
                         objectFit: "contain",
                         objectPosition: "center",
                       }}
@@ -336,6 +332,7 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
             {/* <!-- <div className="footer" style="width: 820px ; height:10%;">
         <img src="https://dasraa.com/MultiDynamicEmail/Footer.png" />
       </div> --> */}
+
             <table
               className="desclaimer"
               style={{ height: "10%", width: "100%" }}
@@ -343,6 +340,7 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
               <tbody>
                 <tr>
                   <td>
+                    {/*
                     <p
                       style={{
                         color: "#666666",
@@ -362,14 +360,13 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                       horse and/ or malicious code when sent. By reading this
                       message and opening any attachments, the recipient accepts
                       full responsibility for taking protective and remedial
-                      action as required.
-                      <br />
-                      <strong>Privacy Policy:</strong>[
-                      <a href="https://multidynamic.com.au/images/Privacy_policies.pdf">
-                        Click Here
-                      </a>
-                      ]
-                    </p>
+                      action as required. */}
+                    {/* <br /> */}
+                    <strong>Privacy Policy:</strong>[
+                    <a href="https://multidynamic.com.au/images/Privacy_policies.pdf">
+                      Click Here
+                    </a>
+                    ]
                   </td>
                 </tr>
               </tbody>
