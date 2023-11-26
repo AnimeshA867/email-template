@@ -31,15 +31,22 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
     ref
   ) => {
     return (
-      <div className="h-full w-full flex flex-col items-center justify-around ">
-        <h1 className="text-[40px] font-bold">Preview</h1>
-        <div ref={ref} className="border-black/40 border-[2px]">
+      <div className=" flex flex-col lg:items-center lg:justify-evenly  w-full h-full justify-center items-center">
+        <h1 className="lg:text-[40px] text-[30px] font-bold ">Preview</h1>
+        <div
+          ref={ref}
+          className="border-black/40 border-[2px overflow-hidden lg:w-[820px] w-[350px]"
+        >
           {" "}
-          <h4 style={{ color: "#004c98", fontSize: "16px", fontWeight: "600" }}>
+          <h4
+            // style={{ color: "#004c98", fontSize: "16px", fontWeight: "600" }}
+            className="font-semibold lg:text-[16px] text-[10px]  text-[#004c98]"
+          >
             If you need any further information, please do not hesitate to
             contact me. <br />
             Kind Regards,
           </h4>
+
           <div className="signature" style={{ width: "820px" }}>
             <table className="logo" style={{ width: "820px", height: "151px" }}>
               <tbody>
@@ -71,53 +78,34 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                         left: "10px",
                       }}
                     />
+
                   </td>
                 </tr>
               </tbody>
             </table>
+
             <table
               className="social-icons"
               style={{ width: "100%", marginTop: "10px" }}
             >
+
               <tbody>
                 <tr style={{ padding: "0%" }}>
-                  <td style={{ width: "70%", padding: "0%" }}>
-                    <h2
-                      style={{
-                        width: "100%",
-                        padding: "5px",
-                        color: "#004c98",
-                        fontSize: "20px",
-                        fontWeight: "600",
-                      }}
-                    >
+                  <td className="lg:w-[70%] w-[50%]">
+                    <h2 className="w-full p-[3px] lg:p-[5px] text-[#004c98] lg:text-[20px] font-semibold text-[13px]">
                       {name}
                     </h2>
 
-                    <p
-                      style={{
-                        width: "100%",
-                        padding: "5px",
-                        fontSize: "18px",
-                        color: "#004c98",
-                      }}
-                    >
+                    <p className="w-full p-[3px] lg:p-[5px] text-[13px] lg:text-[18px] text-[#004c98]">
                       <i>{designation}</i>
                     </p>
-                    <h2
-                      style={{
-                        width: "100%",
-                        padding: "5px",
-                        color: "#004c98",
-                        fontSize: "20px",
-                        fontWeight: "600",
-                      }}
-                    >
+                    <h2 className="w-full p-[3px] lg:p-[5px] text-[#004c98] lg:text-[20px] font-semibold text-[13px]">
                       {industry}
                     </h2>
                     <br />
                     <br />
                   </td>
+
                   <td
                     style={{
                       width: "40%",
@@ -161,23 +149,25 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                         style={{ width: "30px", height: "30px" }}
                       />
                     </a>
+
                   </td>
                 </tr>
               </tbody>
             </table>
+
             <table style={{ width: "100%" }}>
+
               <tbody>
-                <tr>
-                  <td style={{ width: "500px" }}>
+                <tr className="">
+                  <td className="lg:w-2/4 w-2/4">
                     <table className="address">
                       <tbody>
                         <tr>
                           <td>
-                            {/* <Image
-                              height={25}
-                              width={25}
+                            <img
                               src="https://dasraa.com/MultiDynamicEmail/phone.png"
                               alt=""
+
                               // style={{ width: "25px", height: " 25px" }}
                             /> */}
                             <img
@@ -196,6 +186,7 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                               <a href={`tel:${phone1} `}>{phone1}</a>
                               &nbsp;&nbsp;•&nbsp;&nbsp;
                               <a href={`tel:${phone2} `}>{phone2}</a>
+
                             </p>
                           </td>
                         </tr>
@@ -204,27 +195,28 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                             <img
                               src="https://dasraa.com/MultiDynamicEmail/email.png"
                               alt=""
+
                               style={{
                                 height: "25px",
                                 width: "25px",
                                 objectFit: "contain",
                                 objectPosition: "center",
                               }}
+
                             />
                           </td>
                           <td>
-                            <p>
-                              <a href={`mailto:${email}`}>{email}</a>
+                            <p className={`lg:text-[15px] text-[11px]`}>
+                              <a href={`mailto: ${email}`}>{email}</a>
                             </p>
                           </td>
                         </tr>
                         <tr>
                           <td>
-                            {/* <Image
-                              height={25}
-                              width={25}
+                            <img
                               src="https://dasraa.com/MultiDynamicEmail/location.png"
                               alt=""
+
                               // style={{ width: "25px", height: " 25px" }}
                             /> */}
 
@@ -237,11 +229,12 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                                 objectFit: "contain",
                                 objectPosition: "center",
                               }}
+
                             />
                           </td>
                           <td>
-                            <p>
-                              <a href="https://goo.gl/maps/cABKBmhmYtkP4ZiS7">
+                            <p className={`lg:text-[15px] text-[11px]`}>
+                              <a href={`#`} className="pointer-event-none">
                                 {address}
                               </a>
                             </p>
@@ -249,11 +242,10 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                         </tr>
                         <tr>
                           <td>
-                            {/* <Image
-                              height={25}
-                              width={25}
+                            <img
                               src="https://dasraa.com/MultiDynamicEmail/website.png"
                               alt=""
+
                               // style={{ width: "25px", height: " 25px" }}
                             /> */}
                             <img
@@ -265,10 +257,11 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                                 objectFit: "contain",
                                 objectPosition: "center",
                               }}
+
                             />
                           </td>
                           <td>
-                            <p>
+                            <p className={`lg:text-[15px] text-[11px]`}>
                               <a href={`${website}`}>{website}</a>
                             </p>
                           </td>
@@ -276,6 +269,7 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                       </tbody>
                     </table>
                   </td>
+
                   <td
                     style={{
                       display: "flex",
@@ -298,22 +292,19 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                           objectPosition: "center",
                         }}
                       />
+
                     )}
                   </td>
                 </tr>
               </tbody>
             </table>
+
             <table className="footer" style={{ width: "820px", height: "10%" }}>
+
               <tbody>
                 <tr>
-                  <td style={{ width: "820px" }}>
-                    {/* <Image
-                      src="https://dasraa.com/MultiDynamicEmail/Footer.png"
-                      height={900}
-                      width={900}
-                      alt=""
-                      style={{ width: "100%", height: "auto" }}
-                    /> */}
+                  <td className="lg:w-[820px] w-[350px] h-[20px]">
+                  
 
                     <img
                       src="https://i.ibb.co/wBFB0RS/footer.png"
@@ -324,11 +315,13 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                         objectFit: "contain",
                         objectPosition: "center",
                       }}
+
                     />
                   </td>
                 </tr>
               </tbody>
             </table>
+
             {/* <!-- <div className="footer" style="width: 820px ; height:10%;">
         <img src="https://dasraa.com/MultiDynamicEmail/Footer.png" />
       </div> --> */}
@@ -337,6 +330,7 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
               className="desclaimer"
               style={{ height: "10%", width: "100%" }}
             >
+
               <tbody>
                 <tr>
                   <td>
