@@ -5,24 +5,25 @@ interface YourFormProps {
   handleNameChange: (value: any) => void;
   handleDesignationChange: (value: any) => void;
   handleIndustryChange: (value: any) => void;
-  handlePhone1Change: (value: any) => void;
-  handlePhone2Change: (value: any) => void;
-  handleEmailChange: (value: any) => void;
-  handleAddressChange: (value: any) => void;
-  handleWebsiteChange: (value: any) => void;
   handleProfileChange: (value: any) => void;
   handleAward: (value: string) => void;
   toggleUpdate: () => void;
+
+  address: string;
+  website: string;
+  phone1: string;
+  handlePhone2Change: (value: any) => void;
+  email: string;
 }
 const Form = ({
   handleNameChange,
   handleDesignationChange,
   handleIndustryChange,
-  handlePhone1Change,
+  address,
+  website,
+  phone1,
   handlePhone2Change,
-  handleEmailChange,
-  handleAddressChange,
-  handleWebsiteChange,
+  email,
   handleProfileChange,
   handleAward,
   toggleUpdate,
@@ -66,29 +67,36 @@ const Form = ({
           <label htmlFor="industry" className="mb-1">
             Industry
           </label>
-          <input
+          <select
             className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 text-black"
-            type="text"
+            name="industry"
             id="industry"
-            placeholder="Enter your industry"
             onChange={(e) => handleIndustryChange(e)}
-          />
+          >
+            <option value="Ingleburn">Ingleburn</option>
+            <option value="Auburn">Auburn</option>
+            <option value="Rouse Hill">Rouse Hill</option>
+            <option value="Southport">Southport</option>
+            <option value="Fitzgibbon">Fitzgibbon</option>
+            <option value="Adelaide">Adelaide</option>
+          </select>
         </div>
         <div className="flex flex-col mb-4">
           <label htmlFor="phoneNumber1" className="mb-1">
-            Phone Number 1
+            Office Phone Number
           </label>
           <input
             className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 text-black invalid:border-red-500"
             type="tel"
             id="phoneNumber1"
             placeholder="+1 111-111-1111"
-            onChange={(e) => handlePhone1Change(e)}
+            disabled={true}
+            value={phone1}
           />
         </div>
         <div className="flex flex-col mb-4">
           <label htmlFor="phoneNumber2" className="mb-1">
-            Phone Number 2
+            Personal Phone Number
           </label>
           <input
             className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 text-black"
@@ -107,7 +115,8 @@ const Form = ({
             type="email"
             id="email"
             placeholder="example@example.com"
-            onChange={(e) => handleEmailChange(e)}
+            disabled={true}
+            value={email}
           />
         </div>
         <div className="flex flex-col mb-4">
@@ -116,10 +125,11 @@ const Form = ({
           </label>
           <input
             className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 text-black"
-            type="text"
+            name="address"
             id="address"
             placeholder="Address"
-            onChange={(e) => handleAddressChange(e)}
+            disabled={true}
+            value={address}
           />
         </div>
         <div className="flex flex-col mb-4">
@@ -131,7 +141,8 @@ const Form = ({
             type="url"
             id="website"
             placeholder="Website"
-            onChange={(e) => handleWebsiteChange(e)}
+            disabled={true}
+            value={website}
           />
         </div>
       </div>
@@ -139,7 +150,6 @@ const Form = ({
         <SingleImageDropzoneUsage handleProfileChange={handleProfileChange} />
 
         <SingleImageDropzoneUsage handleProfileChange={handleAward} />
-
       </div>
     </div>
   );

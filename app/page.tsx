@@ -3,21 +3,21 @@ import { useEffect, useState, useRef } from "react";
 
 import Preview from "./Components/Preview";
 import Form from "./Components/Form";
-import { emit } from "process";
-import { text } from "stream/consumers";
 
 export default function Home() {
   const [name, setName] = useState("Full Name");
   const [designation, setDesignation] = useState("Designation");
   const [industry, setIndustry] = useState("Industry");
   const [phone1, setPhone1] = useState("+61 111-111-1111");
-  const [phone2, setPhone2] = useState("+61 111-111-1111");
+  const [phone2, setPhone2] = useState("");
   const [email, setEmail] = useState("example@example.com");
   const [address, setAddress] = useState("Address, Address");
   const [website, setWebsite] = useState("Something.com");
-  const [profile, setProfile] = useState("");
+  const [profile, setProfile] = useState(
+    "https://dasraa.com/MultiDynamicEmail/finalmd.png"
+  );
   const [award, setAward] = useState("");
-
+  const [addressUrl, setAddressUrl] = useState("");
   const [update, setUpdate] = useState(false);
   const [copyStatus, setCopyStatus] = useState(false);
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,26 +37,10 @@ export default function Home() {
   const handleIndustryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIndustry(event.target.value);
   };
-
-  const handlePhone1Change = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPhone1(event.target.value);
-  };
-
   const handlePhone2Change = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPhone2(event.target.value);
   };
 
-  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
-  };
-
-  const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setAddress(event.target.value);
-  };
-
-  const handleWebsiteChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setWebsite(event.target.value);
-  };
   const toggleUpdate = () => {
     setUpdate(true);
     setAward("");
@@ -64,6 +48,60 @@ export default function Home() {
     console.log(award);
     console.log("Toggle function is working");
   };
+  useEffect(() => {
+    switch (industry) {
+      case "Ingleburn":
+        setWebsite("https://ingleburn.multidynamic.com.au");
+        setAddress("Shop 2, 16 Ingleburn Rd, Ingleburn NSW 2565");
+        setAddressUrl("https://maps.app.goo.gl/5XqyK7DLoChMGpwh8");
+        setEmail("ingleburn@multidynamic.com.au");
+        setPhone1("0296186209");
+
+        break;
+      case "Auburn":
+        setWebsite("https://auburn.multidynamic.com.au/");
+        setAddress("Shop 26/22, 20 Northumberland Rd, Auburn NSW 2144");
+        setAddressUrl("https://maps.app.goo.gl/JpcWw6sRw53onH2s9");
+        setEmail("auburn@multidynamic.com.au");
+        setPhone1("1300201330");
+
+        break;
+      case "Rouse Hill":
+        setWebsite("https://rousehill.multidynamic.com.au/");
+        setAddress("Shop 1, 70 The Parkway, Beaumont Hills NSW 2155");
+        setAddressUrl("https://maps.app.goo.gl/VaLk5VRumpXFS8Cd8");
+        setEmail("rousehill@multidynamic.com.au");
+        setPhone1("02 8678 7123");
+
+        break;
+      case "Southport":
+        setWebsite("https://southport.multidynamic.com.au");
+        setAddress("	1/55 Nerang Street, Southport 4215 QLD");
+        setAddressUrl("https://maps.app.goo.gl/Z6SA5NWR3PPr2qPJ6");
+        setEmail("southport@multidynamic.com.au");
+        setPhone1("07 5608 9845");
+
+        break;
+      case "Fitzigibbon":
+        setWebsite("https://fitzgibbon.multidynamic.com.au/");
+        setAddress("Shop 6, 545 Roghan Road, Fitzgibbon QLD 4018");
+        setAddressUrl(
+          "https://www.google.com/maps/place/Multi+Dynamic+Fitzgibbon/@-27.3386977,153.0280493,17z/data=!4m14!1m7!3m6!1s0x6b93e330fc64b05d:0xee5fde94db721747!2sMulti+Dynamic+Fitzgibbon!8m2!3d-27.3386977!4d153.0280493!16s%2Fg%2F11v6dmnppm!3m5!1s0x6b93e330fc64b05d:0xee5fde94db721747!8m2!3d-27.3386977!4d153.0280493!16s%2Fg%2F11v6dmnppm?entry=ttu"
+        );
+        setEmail("fitzgibbon@multidynamic.com.au");
+        setPhone1("	61 402 929 823");
+
+        break;
+      case "Adelaide":
+        setWebsite("https://sa.multidynamic.com.au/");
+        setAddress("Unit 2, 325 Hampstead Road, Northfield SA- 5085");
+        setAddressUrl("https://maps.app.goo.gl/5XqyK7DLoChMGpwh8");
+        setEmail("sa@multidynamic.com.au");
+        setPhone1("	08 8164 5136");
+
+        break;
+    }
+  }, [industry]);
 
   const previewRef = useRef<HTMLDivElement>(null);
   /* 
@@ -116,6 +154,9 @@ export default function Home() {
         padding: 0;
         margin: 0;
         border-spacing: 0;
+      }
+      body{
+        background-color:white;
       }
 
       table,
@@ -189,16 +230,16 @@ table td {
       <div className="lg:w-1/2 lg:h-auto w-full  group  bg-gray-700">
         <Form
           handleNameChange={handleNameChange}
-          handleEmailChange={handleEmailChange}
           handleDesignationChange={handleDesignationChange}
-          handlePhone1Change={handlePhone1Change}
-          handlePhone2Change={handlePhone2Change}
-          handleWebsiteChange={handleWebsiteChange}
-          handleAddressChange={handleAddressChange}
           handleIndustryChange={handleIndustryChange}
           handleProfileChange={handleProfileChange}
           handleAward={handleAward}
           toggleUpdate={toggleUpdate}
+          website={website}
+          phone1={phone1}
+          handlePhone2Change={handlePhone2Change}
+          address={address}
+          email={email}
         />
       </div>
       <div className="lg:w-1/2 w-full  group relative lg:h-auto h-auto">
@@ -214,6 +255,7 @@ table td {
           profile={profile}
           award={award}
           update={update}
+          mapLink={addressUrl}
           ref={previewRef}
         />
         <div className="h-full w-full group-hover:opacity-100 opacity-0 backdrop-blur-md z-10 absolute right-0 top-0 p-4 transition-all duration-400 ease-linear rounded-md">
