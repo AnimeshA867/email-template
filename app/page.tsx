@@ -16,14 +16,14 @@ export default function Home() {
   const [address, setAddress] = useState("Address, Address");
   const [website, setWebsite] = useState("Something.com");
   const [profile, setProfile] = useState("");
-  const [award, setAward] = useState<[string]>();
-  const [images, setImages] = useState<[string] | undefined>();
+  const [award, setAward] = useState("");
+
   const [update, setUpdate] = useState(false);
   const [copyStatus, setCopyStatus] = useState(false);
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
   };
-  const handleAward = (arr: [string]) => {
+  const handleAward = (arr: string) => {
     setAward(arr);
   };
   const handleDesignationChange = (
@@ -59,7 +59,8 @@ export default function Home() {
   };
   const toggleUpdate = () => {
     setUpdate(true);
-    setImages(award);
+    setAward("");
+    setProfile("");
     console.log(award);
     console.log("Toggle function is working");
   };
@@ -106,27 +107,7 @@ export default function Home() {
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <script src="https://cdn.tailwindcss.com"></script>
-      <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            clifford: '#da373d',
-          }
-        }
-      }
-    }
-  </script>
-   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-</head>
-      <style type="text/tailwindcss">
-    @layer utilities {
-      .content-auto {
-        content-visibility: auto;
-      }
-    }
-  </style>
+
     <title>Gmail Signature for ${name}</title>
 
     <style>
@@ -148,16 +129,13 @@ table tr,
 table td {
   height: 30px;
   font-size: 14px;
-  line-height: 11px;
+
+  line-height: 14px;
   vertical-align: center;
   font-family: Tahoma;
 }
-@media (min-width: 1024px) {
-  table tr,
-  table td {
-    line-height: 15px;
-  }
-}
+
+
 
       table.address tr td:first-child {
         padding-right: 10px;
@@ -234,7 +212,7 @@ table td {
           address={address}
           website={website}
           profile={profile}
-          award={images}
+          award={award}
           update={update}
           ref={previewRef}
         />

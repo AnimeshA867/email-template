@@ -11,7 +11,7 @@ interface YourFormProps {
   handleAddressChange: (value: any) => void;
   handleWebsiteChange: (value: any) => void;
   handleProfileChange: (value: any) => void;
-  handleAward: (value: [string]) => void;
+  handleAward: (value: string) => void;
   toggleUpdate: () => void;
 }
 const Form = ({
@@ -137,10 +137,9 @@ const Form = ({
       </div>
       <div className="flex justify-evenly items-center w-full flex-wrap">
         <SingleImageDropzoneUsage handleProfileChange={handleProfileChange} />
-        <MultiFileDropzoneUsage
-          handleAward={handleAward}
-          toggleUpdate={toggleUpdate}
-        />
+
+        <SingleImageDropzoneUsage handleProfileChange={handleAward} />
+
       </div>
     </div>
   );
