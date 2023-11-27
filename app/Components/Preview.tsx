@@ -33,7 +33,7 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
     ref
   ) => {
     return (
-      <div className=" flex flex-col lg:items-center lg:justify-evenly  w-full h-full justify-center items-center">
+      <div className=" flex flex-col lg:items-center lg:justify-start space-y-12  w-full h-full justify-center items-center">
         <h1 className="lg:text-[40px] text-[30px] font-bold ">Preview</h1>
         <div
           ref={ref}
