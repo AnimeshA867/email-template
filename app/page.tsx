@@ -227,7 +227,7 @@ table td {
   // console.log(previewRef.current);
   return (
     <main className="flex min-h-screen lg:flex-row flex-col  gap-4 ">
-      <div className="lg:w-1/2 lg:h-auto w-full  group  bg-gray-700">
+      <div className="lg:w-1/3 lg:h-auto w-full  group  bg-gray-700">
         <Form
           handleNameChange={handleNameChange}
           handleDesignationChange={handleDesignationChange}
@@ -242,7 +242,7 @@ table td {
           email={email}
         />
       </div>
-      <div className="lg:w-1/2 w-full  group relative lg:h-auto h-auto">
+      <div className="lg:w-2/3 w-full  group relative lg:h-auto h-auto">
         <Preview
           name={name}
           designation={designation}
