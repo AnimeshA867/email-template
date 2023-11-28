@@ -8,7 +8,11 @@ interface YourFormProps {
   handleProfileChange: (value: any) => void;
   handleAward: (value: string) => void;
   toggleUpdate: () => void;
-
+  handleFacebookLink: (value: any) => void;
+  handleInstagramLink: (value: any) => void;
+  handleLinkedinLink: (value: any) => void;
+  handleTwitterLink: (value: any) => void;
+  handleYoutubeLink: (value: any) => void;
   address: string;
   website: string;
   phone1: string;
@@ -26,6 +30,12 @@ const Form = ({
   email,
   handleProfileChange,
   handleAward,
+  handleFacebookLink,
+  handleInstagramLink,
+  handleLinkedinLink,
+  handleTwitterLink,
+  handleYoutubeLink,
+
   toggleUpdate,
 }: YourFormProps) => {
   return (
@@ -81,6 +91,67 @@ const Form = ({
             <option value="Adelaide">Adelaide</option>
           </select>
         </div>
+        <div className="flex flex-col mb-4">
+          <label htmlFor="phoneNumber2" className="mb-1">
+            Facebook Link
+          </label>
+          <input
+            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 text-black"
+            type="text"
+            id="facebook"
+            placeholder="facebook.com/....."
+            onChange={(e) => handleFacebookLink(e)}
+          />
+        </div>
+        <div className="flex flex-col mb-4">
+          <label htmlFor="phoneNumber2" className="mb-1">
+            Youtube Link
+          </label>
+          <input
+            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 text-black"
+            type="text"
+            id="youtube"
+            placeholder="youtube.com/....."
+            onChange={(e) => handleYoutubeLink(e)}
+          />
+        </div>
+        <div className="flex flex-col mb-4">
+          <label htmlFor="phoneNumber2" className="mb-1">
+            Linkedin Link
+          </label>
+          <input
+            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 text-black"
+            type="text"
+            id="linkedin"
+            placeholder="linkedin.com/....."
+            onChange={(e) => handleLinkedinLink(e)}
+          />
+        </div>
+        <div className="flex flex-col mb-4">
+          <label htmlFor="phoneNumber2" className="mb-1">
+            Instagram Link
+          </label>
+          <input
+            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 text-black"
+            type="text"
+            id="instagram"
+            placeholder="instagram.com/..."
+            onChange={(e) => handleInstagramLink(e)}
+          />
+        </div>
+        <div className="flex flex-col mb-4">
+          <label htmlFor="phoneNumber2" className="mb-1">
+            Twitter Link
+          </label>
+          <input
+            className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 text-black"
+            type="text"
+            id="twitter"
+            placeholder="twitter.com/..."
+            onChange={(e) => handleTwitterLink(e)}
+          />
+        </div>
+
         <div className="flex flex-col mb-4">
           <label htmlFor="phoneNumber1" className="mb-1">
             Office Phone Number
