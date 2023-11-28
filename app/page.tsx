@@ -291,7 +291,7 @@ table td {
           linkedin={linkedin}
           youtube={youtube}
         />
-        <div className="h-full w-full group-hover:opacity-100 opacity-0 backdrop-blur-md z-10 absolute right-0 top-0 p-4 transition-all duration-400 ease-linear rounded-md">
+        <div className="h-screen w-full group-hover:opacity-100 opacity-0 backdrop-blur-md z-10 absolute right-0 top-0 p-4 transition-all duration-400 ease-linear rounded-md">
           <button
             className="bg-green-500 text-white py-4 px-6 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hover:bg-green-600 rounded-full font-bold text-[20px] z-20 "
             onClick={() => copy()}
