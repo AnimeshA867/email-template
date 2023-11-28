@@ -16,6 +16,11 @@ export default function Home() {
   const [profile, setProfile] = useState(
     "https://dasraa.com/MultiDynamicEmail/finalmd.png"
   );
+  const [facebook, setFacebook] = useState("");
+  const [youtube, setYoutube] = useState("");
+  const [linkedin, setLinkedin] = useState("");
+  const [twitter, setTwitter] = useState("");
+  const [instagram, setInstagram] = useState("");
   const [award, setAward] = useState("");
   const [addressUrl, setAddressUrl] = useState("");
   const [update, setUpdate] = useState(false);
@@ -40,13 +45,27 @@ export default function Home() {
   const handlePhone2Change = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPhone2(event.target.value);
   };
+  const handleFacebookLink = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFacebook(event.target.value);
+  };
+  const handleLinkedinLink = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setLinkedin(event.target.value);
+  };
+  const handleInstagramLink = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInstagram(event.target.value);
+  };
+  const handleYoutubeLink = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setYoutube(event.target.value);
+  };
+  const handleTwitterLink = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTwitter(event.target.value);
+  };
 
   const toggleUpdate = () => {
     setUpdate(true);
     setAward("");
     setProfile("");
     console.log(award);
-    console.log("Toggle function is working");
   };
   useEffect(() => {
     switch (industry) {
@@ -85,9 +104,7 @@ export default function Home() {
       case "Fitzigibbon":
         setWebsite("https://fitzgibbon.multidynamic.com.au/");
         setAddress("Shop 6, 545 Roghan Road, Fitzgibbon QLD 4018");
-        setAddressUrl(
-          "https://www.google.com/maps/place/Multi+Dynamic+Fitzgibbon/@-27.3386977,153.0280493,17z/data=!4m14!1m7!3m6!1s0x6b93e330fc64b05d:0xee5fde94db721747!2sMulti+Dynamic+Fitzgibbon!8m2!3d-27.3386977!4d153.0280493!16s%2Fg%2F11v6dmnppm!3m5!1s0x6b93e330fc64b05d:0xee5fde94db721747!8m2!3d-27.3386977!4d153.0280493!16s%2Fg%2F11v6dmnppm?entry=ttu"
-        );
+        setAddressUrl("https://maps.app.goo.gl/ZAkUc6NyxfhDRmJR9");
         setEmail("fitzgibbon@multidynamic.com.au");
         setPhone1("	61 402 929 823");
 
@@ -137,7 +154,7 @@ export default function Home() {
   const copy = () => {
     if (previewRef.current) {
       const previewHtml = previewRef.current.innerHTML;
-      console.log(previewHtml);
+
       const html = `<!DOCTYPE html>
 
 <html lang="en">
@@ -155,11 +172,7 @@ export default function Home() {
         margin: 0;
         border-spacing: 0;
       }
-      body{
-        background-color:white;
-      }
-
-      table,
+        table,
       table * {
         padding: 0;
         margin: 0;
@@ -189,8 +202,18 @@ table td {
       }
 
       .social-icons img {
-        margin-left: 4px;
-      }
+  margin-left: 4px;
+  height: 30px;
+  width: 30px;
+  object-fit: contain;
+  object-position: center;
+}
+.icon {
+  height: 25px;
+  width: 25px;
+  object-fit: contain;
+  object-position: center;
+}
     </style>
   </head>
 
@@ -240,6 +263,11 @@ table td {
           handlePhone2Change={handlePhone2Change}
           address={address}
           email={email}
+          handleFacebookLink={handleFacebookLink}
+          handleTwitterLink={handleTwitterLink}
+          handleLinkedinLink={handleLinkedinLink}
+          handleInstagramLink={handleInstagramLink}
+          handleYoutubeLink={handleYoutubeLink}
         />
       </div>
       <div className="lg:w-2/3 w-full  group relative lg:h-auto h-auto">
@@ -257,6 +285,11 @@ table td {
           update={update}
           mapLink={addressUrl}
           ref={previewRef}
+          facebook={facebook}
+          instagram={instagram}
+          twitter={twitter}
+          linkedin={linkedin}
+          youtube={youtube}
         />
         <div className="h-full w-full group-hover:opacity-100 opacity-0 backdrop-blur-md z-10 absolute right-0 top-0 p-4 transition-all duration-400 ease-linear rounded-md">
           <button

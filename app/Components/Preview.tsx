@@ -13,6 +13,11 @@ interface ChildProps {
   award: string;
   update: boolean;
   mapLink: string;
+  facebook: string;
+  instagram: string;
+  linkedin: string;
+  youtube: string;
+  twitter: string;
 }
 
 const Preview = forwardRef<HTMLDivElement, ChildProps>(
@@ -29,6 +34,11 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
       profile,
       award,
       mapLink,
+      facebook,
+      instagram,
+      linkedin,
+      youtube,
+      twitter,
     },
     ref
   ) => {
@@ -50,7 +60,10 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
             Kind Regards,
             <br />
           </h4>
-          <div className="signature" style={{ width: "820px" }}>
+          <div
+            className="signature"
+            style={{ width: "820px", background: "white" }}
+          >
             <table className="logo" style={{ width: "820px", height: "151px" }}>
               <tbody>
                 <tr>
@@ -76,7 +89,7 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
             >
               <tbody>
                 <tr style={{ padding: "0%" }}>
-                  <td className="lg:w-[70%] w-[50%]">
+                  <td>
                     <h2
                       className="font-bold"
                       style={{
@@ -121,41 +134,51 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                       textDecoration: "none",
                     }}
                   >
-                    <a href="https://www.facebook.com/MDSOUTHPORT">
-                      <img
-                        src="https://dasraa.com/MultiDynamicEmail/facebook.png"
-                        alt=""
-                        style={{ width: "30px", height: "30px" }}
-                      />
-                    </a>
-                    <a href="https://www.instagram.com/mdsouthport/">
-                      <img
-                        src="https://dasraa.com/MultiDynamicEmail/insta.png"
-                        alt=""
-                        style={{ width: "30px", height: "30px" }}
-                      />
-                    </a>
-                    <a href="https://www.linkedin.com/in/multi-dynamic-61bb8b287/">
-                      <img
-                        src="https://dasraa.com/MultiDynamicEmail/linkedin.png"
-                        alt=""
-                        style={{ width: "30px", height: "30px" }}
-                      />
-                    </a>
-                    <a href="https://twitter.com/_multidynamic">
-                      <img
-                        src="https://dasraa.com/MultiDynamicEmail/twitter.png"
-                        alt=""
-                        style={{ width: "30px", height: "30px" }}
-                      />
-                    </a>
-                    <a href="https://www.youtube.com/@MultiDynamicSouthport">
-                      <img
-                        src="https://dasraa.com/MultiDynamicEmail/youtube.png"
-                        alt=""
-                        style={{ width: "30px", height: "30px" }}
-                      />
-                    </a>
+                    {facebook && (
+                      <a href={facebook}>
+                        <img
+                          src="https://dasraa.com/MultiDynamicEmail/facebook.png"
+                          alt=""
+                          // style={{ width: "30px", height: "30px" }}
+                        />
+                      </a>
+                    )}
+                    {instagram && (
+                      <a href={instagram}>
+                        <img
+                          src="https://dasraa.com/MultiDynamicEmail/insta.png"
+                          alt=""
+                          // style={{ width: "30px", height: "30px" }}
+                        />
+                      </a>
+                    )}
+                    {linkedin && (
+                      <a href={linkedin}>
+                        <img
+                          src="https://dasraa.com/MultiDynamicEmail/linkedin.png"
+                          alt=""
+                          // style={{ width: "30px", height: "30px" }}
+                        />
+                      </a>
+                    )}
+                    {twitter && (
+                      <a href={twitter}>
+                        <img
+                          src="https://dasraa.com/MultiDynamicEmail/twitter.png"
+                          alt=""
+                          // style={{ width: "30px", height: "30px" }}
+                        />
+                      </a>
+                    )}
+                    {youtube && (
+                      <a href={youtube}>
+                        <img
+                          src="https://dasraa.com/MultiDynamicEmail/youtube.png"
+                          alt=""
+                          // style={{ width: "30px", height: "30px" }}
+                        />
+                      </a>
+                    )}
                   </td>
                 </tr>
               </tbody>
@@ -164,7 +187,7 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
             <table style={{ width: "100%" }}>
               <tbody>
                 <tr className="">
-                  <td className="lg:w-2/4 w-2/4">
+                  <td>
                     <table className="address">
                       <tbody>
                         <tr>
@@ -172,12 +195,7 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                             <img
                               src="https://dasraa.com/MultiDynamicEmail/phone.png"
                               alt=""
-                              style={{
-                                height: "25px",
-                                width: "25px",
-                                objectFit: "contain",
-                                objectPosition: "center",
-                              }}
+                              className="icon"
                             />
                           </td>
                           <td>
@@ -193,16 +211,11 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                             <img
                               src="https://dasraa.com/MultiDynamicEmail/email.png"
                               alt=""
-                              style={{
-                                height: "25px",
-                                width: "25px",
-                                objectFit: "contain",
-                                objectPosition: "center",
-                              }}
+                              className="icon"
                             />
                           </td>
                           <td>
-                            <p className={`lg:text-[15px] text-[11px]`}>
+                            <p>
                               <a href={`mailto: ${email}`}>{email}</a>
                             </p>
                           </td>
@@ -212,16 +225,11 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                             <img
                               src="https://dasraa.com/MultiDynamicEmail/location.png"
                               alt=""
-                              style={{
-                                height: "25px",
-                                width: "25px",
-                                objectFit: "contain",
-                                objectPosition: "center",
-                              }}
+                              className="icon"
                             />
                           </td>
                           <td>
-                            <p className={`lg:text-[15px] text-[11px]`}>
+                            <p>
                               <a href={mapLink}>{address}</a>
                             </p>
                           </td>
@@ -231,16 +239,11 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                             <img
                               src="https://dasraa.com/MultiDynamicEmail/website.png"
                               alt=""
-                              style={{
-                                height: "25px",
-                                width: "25px",
-                                objectFit: "contain",
-                                objectPosition: "center",
-                              }}
+                              className="icon"
                             />
                           </td>
                           <td>
-                            <p className={`lg:text-[15px] text-[11px]`}>
+                            <p>
                               <a href={`${website}`}>{website}</a>
                             </p>
                           </td>
@@ -280,12 +283,9 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
             <table className="footer" style={{ width: "820px", height: "10%" }}>
               <tbody>
                 <tr>
-                  <td
-                    className="lg:w-[820px] w-[350px] h-[20px]"
-                    style={{ width: "820px", height: "20px" }}
-                  >
+                  <td style={{ width: "820px", height: "20px" }}>
                     <img
-                      src="https://i.ibb.co/rtgXKY9/footer.png"
+                      src="https://drive.google.com/file/d/1RnfF6WB9fnCUqauDdjGBzV-l_2vBV-DP/view?usp=sharing"
                       alt=""
                       style={{
                         width: "100%",
