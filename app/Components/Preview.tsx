@@ -285,7 +285,7 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                 <tr>
                   <td style={{ width: "820px", height: "20px" }}>
                     <img
-                      src="https://drive.google.com/file/d/1RnfF6WB9fnCUqauDdjGBzV-l_2vBV-DP/view?usp=sharing"
+                      src="https://multidynamic.com.au/uploads/chatbot/footer.png"
                       alt=""
                       style={{
                         width: "100%",
