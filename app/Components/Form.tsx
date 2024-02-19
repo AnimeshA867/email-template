@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
 import { SingleImageDropzoneUsage } from "./InputImageSingle";
 import { MultiFileDropzoneUsage } from "./InputImageMultiple";
+import { agentArr } from "../page";
 interface YourFormProps {
   handleNameChange: (value: any) => void;
   handleDesignationChange: (value: any) => void;
@@ -18,6 +19,7 @@ interface YourFormProps {
   phone1: string;
   handlePhone2Change: (value: any) => void;
   email: string;
+  nameArr: agentArr;
 }
 const Form = ({
   handleNameChange,
@@ -35,11 +37,11 @@ const Form = ({
   handleLinkedinLink,
   handleTwitterLink,
   handleYoutubeLink,
-
+  nameArr,
   toggleUpdate,
 }: YourFormProps) => {
   return (
-    <div className="lg:h-full w-full  p-10 text-white dark:text-gray-200">
+    <div className="lg:h-full w-full  p-10 text-white dark:text-gray-200 background-[#f26922]">
       <div className="w-full h-fit flex items-center justify-center relative">
         <h1 className="font-bold text-center lg:text-4xl text-xl mb-6">
           Enter your data here
@@ -53,15 +55,26 @@ const Form = ({
           <label htmlFor="name" className="mb-1">
             Name
           </label>
-          <input
+
+          <select
             className="border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 text-black"
-            type="text"
+            name="Name"
             id="name"
-            placeholder="Enter your name"
             onChange={(e) => handleNameChange(e)}
-          />
+          >
+            <option value="name" selected>
+              Name
+            </option>
+            {nameArr?.map((val, id) => {
+              return (
+                <option value={val.name} key={id}>
+                  {val.name}
+                </option>
+              );
+            })}
+          </select>
         </div>
-        <div className="flex flex-col mb-4">
+        {/* <div className="flex flex-col mb-4">
           <label htmlFor="designation" className="mb-1">
             Designation
           </label>
@@ -72,7 +85,7 @@ const Form = ({
             placeholder="Enter your designation"
             onChange={(e) => handleDesignationChange(e)}
           />
-        </div>
+        </div> */}
         <div className="flex flex-col mb-4">
           <label htmlFor="industry" className="mb-1">
             Industry
@@ -152,7 +165,7 @@ const Form = ({
           />
         </div>
 
-        <div className="flex flex-col mb-4">
+        {/* <div className="flex flex-col mb-4">
           <label htmlFor="phoneNumber1" className="mb-1">
             Office Phone Number
           </label>
@@ -176,8 +189,8 @@ const Form = ({
             placeholder="+1 111-111-1111"
             onChange={(e) => handlePhone2Change(e)}
           />
-        </div>
-        <div className="flex flex-col mb-4">
+        </div> */}
+        {/* <div className="flex flex-col mb-4">
           <label htmlFor="email" className="mb-1">
             Email
           </label>
@@ -202,8 +215,8 @@ const Form = ({
             disabled={true}
             value={address}
           />
-        </div>
-        <div className="flex flex-col mb-4">
+        </div> */}
+        {/* <div className="flex flex-col mb-4">
           <label htmlFor="website" className="mb-1">
             Website
           </label>
@@ -215,13 +228,13 @@ const Form = ({
             disabled={true}
             value={website}
           />
-        </div>
+        </div> */}
       </div>
-      <div className="flex justify-evenly items-center w-full flex-wrap">
+      {/* <div className="flex justify-evenly items-center w-full flex-wrap">
         <SingleImageDropzoneUsage handleProfileChange={handleProfileChange} />
 
         <SingleImageDropzoneUsage handleProfileChange={handleAward} />
-      </div>
+      </div> */}
     </div>
   );
 };

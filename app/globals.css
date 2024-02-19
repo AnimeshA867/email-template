@@ -92,3 +92,14 @@ a {
     transform: rotate(360deg);
   }
 }
+
+/* .socialIcons a {
+  display: block;
+  width: fit-content;
+}
+
+.socialIcons {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+} */
