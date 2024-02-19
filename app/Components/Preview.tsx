@@ -49,11 +49,17 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
           ref={ref}
           className="border-black/40 border-[2px overflow-hidden lg:w-[820px] w-[350px]"
         >
-          {" "}
+          {/* <div style={{ height: "150px", width: "820px" }}>
+            <img
+              src="..."
+              alt="..."
+              style={{ height: "100%", width: "100%", margin: "auto" }}
+            />
+          </div>{" "} */}
           <h4
-            // style={{ color: "#004c98", fontSize: "16px", fontWeight: "600" }}
-            className="font-semibold"
-            style={{ color: "#004c98", fontSize: "16px" }}
+          // style={{ color: "#004c98", fontSize: "16px", fontWeight: "600" }}
+          // className="font-semibold"
+          // style={{ color: "#004c98", fontSize: "16px" }}
           >
             If you need any further information, please do not hesitate to
             contact me. <br />
@@ -66,18 +72,16 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
           >
             <table className="logo" style={{ width: "820px", height: "151px" }}>
               <tbody>
-                <tr>
+                <tr
+                  style={{
+                    width: "820px",
+                    height: "150px",
+                    objectPosition: "center",
+                    objectFit: "cover",
+                  }}
+                >
                   <td style={{ position: "relative" }}>
-                    <img
-                      src={profile}
-                      alt=""
-                      style={{
-                        width: "820px",
-                        height: "150px",
-                        objectPosition: "center",
-                        objectFit: "cover",
-                      }}
-                    />
+                    <img src={profile} alt="" />
                   </td>
                 </tr>
               </tbody>
@@ -133,9 +137,10 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                       textAlign: "center",
                       textDecoration: "none",
                     }}
+                    className=" flex justify-end ml-auto pr-4"
                   >
                     {facebook && (
-                      <a href={facebook}>
+                      <a href={facebook} className="flex">
                         <img
                           src="https://dasraa.com/MultiDynamicEmail/facebook.png"
                           alt=""
@@ -144,7 +149,7 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                       </a>
                     )}
                     {instagram && (
-                      <a href={instagram}>
+                      <a href={instagram} className="flex">
                         <img
                           src="https://dasraa.com/MultiDynamicEmail/insta.png"
                           alt=""
@@ -153,7 +158,7 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                       </a>
                     )}
                     {linkedin && (
-                      <a href={linkedin}>
+                      <a href={linkedin} className="flex">
                         <img
                           src="https://dasraa.com/MultiDynamicEmail/linkedin.png"
                           alt=""
@@ -162,7 +167,7 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
                       </a>
                     )}
                     {twitter && (
-                      <a href={twitter}>
+                      <a href={twitter} className="flex">
                         <img
                           src="https://dasraa.com/MultiDynamicEmail/twitter.png"
                           alt=""
