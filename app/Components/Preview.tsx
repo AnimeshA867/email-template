@@ -49,17 +49,17 @@ const Preview = forwardRef<HTMLDivElement, ChildProps>(
           ref={ref}
           className="border-black/40 border-[2px overflow-hidden lg:w-[820px] w-[350px]"
         >
-          <div style={{ height: "150px", width: "820px" }}>
+          {/* <div style={{ height: "150px", width: "820px" }}>
             <img
               src="..."
               alt="..."
               style={{ height: "100%", width: "100%", margin: "auto" }}
             />
-          </div>{" "}
+          </div>{" "} */}
           <h4
-            // style={{ color: "#004c98", fontSize: "16px", fontWeight: "600" }}
-            className="font-semibold"
-            style={{ color: "#004c98", fontSize: "16px" }}
+          // style={{ color: "#004c98", fontSize: "16px", fontWeight: "600" }}
+          // className="font-semibold"
+          // style={{ color: "#004c98", fontSize: "16px" }}
           >
             If you need any further information, please do not hesitate to
             contact me. <br />
